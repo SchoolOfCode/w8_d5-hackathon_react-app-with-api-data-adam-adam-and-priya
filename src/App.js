@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import TopHeadlinesList from "./components/TopHeadlinesList";
 
+const APIKEY = process.env.REACT_APP_ACCESS_KEY;
+
 function App() {
   const [articles, setArticles] = useState();
 
@@ -12,7 +14,7 @@ function App() {
 
   async function getArticle() {
     let response =
-      await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=232c1466bb04434fa070da90ffdf3011
+      await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${APIKEY}
 	`);
     let data = await response.json();
     console.log(data);
