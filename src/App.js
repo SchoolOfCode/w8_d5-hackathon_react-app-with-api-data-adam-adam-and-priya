@@ -9,22 +9,51 @@ function App() {
   const [articles, setArticles] = useState();
 
   useEffect(() => {
-    getArticle();
+    getArticle("?country=us");
   }, []);
 
-  async function getArticle() {
+  async function getArticle(term) {
     let response =
-      await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${APIKEY}
+      await fetch(`https://newsapi.org/v2/top-headlines/${term}&apiKey=${APIKEY}
 	`);
     let data = await response.json();
     console.log(data);
     setArticles(data.articles);
   }
+  // async function getSportArticle() {
+  //   let response =
+  //     await fetch(`https://newsapi.org/v2/top-headlines/?category=sports&apiKey=${APIKEY}
+  // `);
+  //   let data = await response.json();
+  //   console.log(data);
+  //   setArticles(data.articles);
 
   return articles ? (
     <main>
-      {/* <button>sports</button> */}
       <h1>News for you</h1>
+      <nav>
+        <button
+          onClick={() => {
+            getArticle("?country=gb");
+          }}
+        >
+          Home
+        </button>
+        <button
+          onClick={() => {
+            getArticle("?country=gb&category=sports");
+          }}
+        >
+          Sports
+        </button>
+        <button
+          onClick={() => {
+            getArticle("?country=gb&category=business");
+          }}
+        >
+          Business
+        </button>
+      </nav>
       <TopHeadlinesList articles={articles} />
     </main>
   ) : (

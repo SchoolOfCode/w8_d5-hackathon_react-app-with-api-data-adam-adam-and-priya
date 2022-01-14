@@ -47,6 +47,32 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+}
+button {
+  display: flex;
+  max-height: 50rem;
+  border: solid black;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  margin: 0.7rem;
+  background-color: black;
+  color: white;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
+  font-family: "Montserrat", sans-serif;
+}
+button:hover {
+  transition-duration: 0.1s;
+  background-color: cyan;
+  color: black;
+  transition-timing-function: ease-in;
+}
 .item_container {
   display: flex;
   width: 60rem;
