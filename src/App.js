@@ -74,6 +74,13 @@ function App() {
         >
           Health
         </button>
+        <button
+          onClick={() => {
+            getArticle("?country=gb&category=science");
+          }}
+        >
+          Science
+        </button>
       </nav>
       <TopHeadlinesList articles={articles} />
     </main>
