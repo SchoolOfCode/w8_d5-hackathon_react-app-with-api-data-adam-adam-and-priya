@@ -53,6 +53,27 @@ function App() {
         >
           Business
         </button>
+        <button
+          onClick={() => {
+            getArticle("?country=gb&category=technology");
+          }}
+        >
+          Technology
+        </button>
+        <button
+          onClick={() => {
+            getArticle("?country=gb&category=entertainment");
+          }}
+        >
+          Entertainment
+        </button>
+        <button
+          onClick={() => {
+            getArticle("?country=gb&category=health");
+          }}
+        >
+          Health
+        </button>
       </nav>
       <TopHeadlinesList articles={articles} />
     </main>
