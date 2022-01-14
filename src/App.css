@@ -1,3 +1,4 @@
+/* 
 .App {
   text-align: center;
 }
@@ -35,4 +36,25 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.item_container {
+	display: flex;
+	width: 60vw;
+	max-height: 30vh;
+	background-color: red;
+}
+
+.article-info {
+	width: 30%;
+	background-color: blue;
+}
+
+.article-img {
+	width: 70%;
+	background-color: yellow;
+}
+
+.top-headline-img {
+	max-width: 60rem;
 }

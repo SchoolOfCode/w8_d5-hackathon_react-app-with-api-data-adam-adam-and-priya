@@ -1,30 +1,43 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+import sampleObject from "./libs/sampleObject.js";
+import TopHeadlinesList from "./components/TopHeadlinesList";
 
 function App() {
-  const [article, setArticle] = useState();
+	const [articles, setArticles] = useState(sampleObject.articles);
 
-  useEffect(() => {
-    getArticle();
-  }, []);
+	// 	useEffect(() => {
+	// 		getArticle();
+	// 	}, []);
 
-  async function getArticle() {
-    let response =
-      await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=232c1466bb04434fa070da90ffdf3011
-`);
-    let data = await response.json();
-    setArticle(data);
-  }
+	// 	async function getArticle() {
+	// 		let response =
+	// 			await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=232c1466bb04434fa070da90ffdf3011
+	// `);
+	// 		let data = await response.json();
+	// 		setArticle(data);
+	// 	}
 
-  console.log(article);
-
-  return article ? (
-    <div>
-      <h2>hello</h2>
-    </div>
-  ) : (
-    <></>
-  );
+	return (
+		<main>
+			<TopHeadlinesList articles={articles} />
+		</main>
+	);
 }
 
 export default App;
+
+// 	const [article, setArticle] = useState();
+
+// 	useEffect(() => {
+// 		getArticle();
+// 	}, []);
+
+// 	async function getArticle() {
+// 		let response =
+// 			await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=232c1466bb04434fa070da90ffdf3011
+// `);
+// 		let data = await response.json();
+// 		setArticle(data);
+// 	}
