@@ -9,7 +9,7 @@ function App() {
   const [articles, setArticles] = useState();
 
   useEffect(() => {
-    getArticle("?country=us");
+    getArticle("?country=gb");
   }, []);
 
   async function getArticle(term) {
@@ -20,13 +20,6 @@ function App() {
     console.log(data);
     setArticles(data.articles);
   }
-  // async function getSportArticle() {
-  //   let response =
-  //     await fetch(`https://newsapi.org/v2/top-headlines/?category=sports&apiKey=${APIKEY}
-  // `);
-  //   let data = await response.json();
-  //   console.log(data);
-  //   setArticles(data.articles);
 
   return articles ? (
     <main>
