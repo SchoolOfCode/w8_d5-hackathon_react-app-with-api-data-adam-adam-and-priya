@@ -1,11 +1,4 @@
-function TopHeadlineItem({
-  title,
-  description,
-  content,
-  publishedAt,
-  urlToImage,
-  url,
-}) {
+function TopHeadlineItem({ title, description, content, urlToImage, url }) {
   return (
     <a href={url} target="_blank">
       <div className="item_container">

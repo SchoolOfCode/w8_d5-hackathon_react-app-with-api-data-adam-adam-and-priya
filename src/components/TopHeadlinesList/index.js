@@ -1,4 +1,4 @@
-import TopHeadlineItem from "./TopHeadlineItem/index.js";
+import TopHeadlineItem from "../TopHeadlineItem";
 
 function TopHeadlinesList({ articles }) {
   return (

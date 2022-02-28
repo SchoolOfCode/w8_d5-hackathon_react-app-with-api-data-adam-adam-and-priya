@@ -1,15 +1,17 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-
-import TopHeadlinesList from "./components/TopHeadlinesList";
+import TopHeadlinesList from "../TopHeadlinesList";
+import CategoryButton from "../categoryButton";
 
 const APIKEY = process.env.REACT_APP_ACCESS_KEY;
+
+//lets turn the getArticle into our own custom hook, so it can be used in each of our reusable button components using the term paramater and the title eg getArticle(`?country=gb&category=${title}`)
 
 function App() {
   const [articles, setArticles] = useState();
 
   useEffect(() => {
-    getArticle("?country=us");
+    getArticle("?country=gb");
   }, []);
 
   async function getArticle(term) {
@@ -20,67 +22,58 @@ function App() {
     console.log(data);
     setArticles(data.articles);
   }
-  // async function getSportArticle() {
-  //   let response =
-  //     await fetch(`https://newsapi.org/v2/top-headlines/?category=sports&apiKey=${APIKEY}
-  // `);
-  //   let data = await response.json();
-  //   console.log(data);
-  //   setArticles(data.articles);
 
   return articles ? (
     <main>
       <h1>News for you</h1>
       <nav>
-        <button
+        <CategoryButton
+          title={"Home"}
           onClick={() => {
             getArticle("?country=gb");
           }}
-        >
-          Home
-        </button>
-        <button
+        />
+        <CategoryButton
+          title={"Sports"}
           onClick={() => {
             getArticle("?country=gb&category=sports");
           }}
-        >
-          Sports
-        </button>
-        <button
+        />
+
+        <CategoryButton
+          title={"Business"}
           onClick={() => {
             getArticle("?country=gb&category=business");
           }}
-        >
-          Business
-        </button>
-        <button
+        />
+
+        <CategoryButton
+          title={"Technology"}
           onClick={() => {
             getArticle("?country=gb&category=technology");
           }}
-        >
-          Technology
-        </button>
-        <button
+        />
+
+        <CategoryButton
+          title={"Entertainment"}
           onClick={() => {
             getArticle("?country=gb&category=entertainment");
           }}
-        >
-          Entertainment
-        </button>
-        <button
+        />
+
+        <CategoryButton
+          title={"Health"}
           onClick={() => {
             getArticle("?country=gb&category=health");
           }}
-        >
-          Health
-        </button>
-        <button
+        />
+
+        <CategoryButton
+          title={"Science"}
           onClick={() => {
             getArticle("?country=gb&category=science");
           }}
-        >
-          Science
-        </button>
+        />
       </nav>
       <TopHeadlinesList articles={articles} />
     </main>
